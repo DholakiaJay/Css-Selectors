@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All selectors</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      h3 {
+        color: black;
+        border: 2px dashed black;
+        background-color: whitesmoke;
+
+        padding: 5px;
+        text-align: center;
+      }
+
+      p {
+        color: black;
+        font-size: x-large;
+        font-weight: 600;
+        opacity: 30%;
+      }
+      #parent {
+        font-size: 32px;
+        color: red;
+      }
+
+      div {
+        font-size: 32px;
+        color: blueviolet;
+      }
+      .parent {
+        font-size: 32px;
+        color: green;
+      }
+
+      .combi {
+        display: inline flex;
+      }
+
+      div.combi#combi {
+        font-weight: 900;
+        font-family: cursive;
+        color: red;
+      }
+
+      .desc #desc {
+        font-family: monospace;
+        color: chocolate;
+        font-size: 45px;
+      }
+
+      .mparent > .mchild {
+        font-size: 50px;
+        color: coral;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 900;
+        display: inline-block;
+        margin-inline: 50px;
+        padding: 30px;
+      }
+
+      .mparent > .mchild > .msubchild {
+        font-size: inherit;
+        color: crimson;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-weight: 500;
+      }
+
+      .mparent2 > .mchild2 {
+        font-size: 50px;
+        color: coral;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 900;
+        display: inline-block;
+        margin-inline: 50px;
+        padding: 30px;
+      }
+      #sub + .msubchild2 {
+        color: black;
+        background-color: aquamarine;
+      }
+      #sub2 ~ .msubchild2 {
+        color: black;
+        background-color: aquamarine;
+      }
+
+      /* pseudo selectors */
+      .hov i:hover {
+        transition: all 300ms;
+        transition-duration: 0.5s;
+        transform: scale(1.5);
+        color: crimson;
+      }
+
+      .hov2 i:hover {
+        color: red;
+        transform: rotateY(360deg);
+        transition-duration: 2s;
+        transition: 1000ms;
+      }
+
+      .foc #foc {
+        color: red;
+        font-size: 48px;
+        margin: 20px;
+      }
+      #foc:focus {
+        background-color: green;
+        color:yellow;
+        text-transform: capitalize;
+      }
+
+      .act #act:active {
+        color: red;
+
+        background-color: transparent;
+      }
+      #vis:visited {
+        color: green;
+      }
+      .checkbox:checked {
+        transform: scale(1.8);
+        transition-duration: 0.2s;
+        color: red;
+        border-radius: 50px;
+        outline: 3px dotted tomato;
+      }
+
+      .bus {
+        border: 1px solid black;
+        border-radius: 25px 5px 5px 5px;
+        background-color: red;
+        height: 300px;
+        width: 900px;
+        display: flex;
+      }
+
+      .left {
+        position: absolute;
+        margin-left: 45px;
+        margin-top: 210px;
+        background-color: black;
+        height: 130px;
+        width: 130px;
+        border-radius: 100px;
+        text-align: center;
+      }
+      .right {
+        background-color: black;
+        margin-left: 645px;
+        margin-top: 210px;
+        height: 130px;
+        width: 130px;
+        border-radius: 100px;
+        text-align: center;
+      }
+      .wheels {
+        margin-top: 25px;
+        color: whitesmoke;
+        margin-right: 5px;
+      }
+      .window i {
+        color: black;
+
+      }
+      .spin:hover{
+
+
+        transform: scale(2);
+        transform: rotate(-0.25turn);
+        color: grey;
+        transition: all 900ms;
+        transition-duration: 1s;
+
+      }
+
+      .window {
+        overflow: hidden;
+        border-radius: 25px 5px 5px 5px;
+
+        margin: 5px;
+        display: flex;
+        flex-wrap: nowrap;
+        border: 1px solid whitesmoke;
+        position: absolute;
+      }
+      .win {
+        margin: 7px;
+        height: 110px;
+        width: 110px;
+        background-color: whitesmoke;
+      }
+      .check:checked {
+        color: green;
+        outline: 2px solid yellowgreen;
+        transform: scale(1.8);
+        transition-duration: 0.8s;
+        transition: all 300ms;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="simple">
+      <h3>Basic Selectors</h3>
+
+      <p>By Id</p>
+      <div id="parent"><i class="fa-solid fa-child"></i></div>
+
+      <p>By Tag</p>
+      <div><i class="fa-solid fa-child"></i></div>
+
+      <p>By Class</p>
+      <div class="parent"><i class="fa-solid fa-child"></i></div>
+    </div>
+
+    <div class="more">
+      <h3>More Selectors</h3>
+      <p>Combinator Selectors</p>
+
+      <div class="combi"><i class="fa-solid fa-child"></i></div>
+      <div class="combi"><i class="fa-solid fa-child"></i></div>
+      <div class="combi"><i class="fa-solid fa-child"></i></div>
+      <div class="combi"><i class="fa-solid fa-child"></i></div>
+      <div class="combi" id="combi"><i class="fa-solid fa-child"></i></div>
+      <div class="combi"><i class="fa-solid fa-child"></i></div>
+
+      <p>Descendent Selector</p>
+      <div class="desc">
+        <div id="desc"><i class="fa-solid fa-people-arrows"></i></div>
+      </div>
+
+      <p>Child Selectors</p>
+      <div class="mparent">
+        <h2 align="center"><i class="fa-solid fa-person-hiking"></i></h2>
+        <div class="mchild">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="mchild">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="mchild">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="mchild">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="mchild">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="mchild">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild"><i class="fa-solid fa-child"></i></div>
+        </div>
+      </div>
+
+      <p>Adjacent Sibling Selector</p>
+
+      <div class="mparent2">
+        <h2 align="center"><i class="fa-solid fa-person-hiking"></i></h2>
+        <div class="mchild2">
+          <i class="fa-solid fa-person-hiking"></i>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="mchild2">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="mchild2">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="mchild2">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="mchild2">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild2" id="sub">
+            <i class="fa-solid fa-person-circle-xmark"></i>
+          </div>
+          <div class="msubchild2">
+            <i class="fa-solid fa-person-drowning"></i>
+          </div>
+          <div class="msubchild2"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="mchild2">
+          <i class="fa-solid fa-person-rays"></i>
+          <div class="msubchild2" id="sub2">
+            <i class="fa-solid fa-person-circle-xmark"></i>
+          </div>
+          <div class="msubchild2">
+            <i class="fa-solid fa-person-drowning"></i>
+          </div>
+          <div class="msubchild2">
+            <i class="fa-solid fa-person-drowning"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pse">
+      <h3>Pseudo Selectors</h3>
+
+      <p>Pseudo Class Selectors and State</p>
+
+      <div class="hov">
+        <p>Hover</p>
+
+        <i class="fa-solid fa-person-rays"></i>
+      </div>
+
+      <div class="hov2">
+        <p>Hover</p>
+
+        <i class="fa-solid fa-person-snowboarding"></i>
+      </div>
+
+      <div class="foc">
+        <p>Focus</p>
+        <i class="fa-solid fa-person"></i>
+        <i class="fa-solid fa-person"></i>
+        <i class="fa-solid fa-person" style="color: crimson"></i>
+        <i class="fa-solid fa-person"></i>
+        <i class="fa-solid fa-person"></i>
+        <i class="fa-solid fa-person"></i>
+        <input
+          type="text"
+          placeholder="Enter Name"
+          id="foc"
+          value="Selected Person Name : J.D"
+          style="width: 50%; text-align: center"
+        />
+      </div>
+
+      <div class="act">
+        <p>Active</p>
+        <a href="#"><i class="fa-regular fa-face-smile" id="act"></i></a>
+      </div>
+
+      <div class="vis">
+        <p>Visited</p>
+        <a href="https://www.google.com/" target="_parent"
+          ><i class="fa-brands fa-google" id="vis"></i
+        ></a>
+      </div>
+
+      <div class="check">
+        <p>Checked</p>
+
+        <label
+          ><input type="checkbox" class="checkbox" />
+          <i class="fa-solid fa-person-rifle"></i
+        ></label>
+
+        &nbsp; &nbsp;
+
+        <label
+          ><input type="checkbox" class="checkbox" />
+          <i class="fa-solid fa-person-praying"></i
+        ></label>
+
+        &nbsp; &nbsp;
+
+        <label
+          ><input type="checkbox" class="checkbox" />
+          <i class="fa-solid fa-person-digging"></i
+        ></label>
+      </div>
+    </div>
+
+    <p>Checked</p>
+    <center>
+      <h4 style="color: red; font-weight: 900; font-size: x-large">
+        Book Your Place Now !
+      </h4>
+      <div class="bus">
+        <div class="window">
+          <div class="win" style="border-radius: 15px 5px 5px 5px">
+            <label
+              ><input type="checkbox" class="check" /><i
+                class="fa-solid fa-wheelchair fa-flip-horizontal"
+                style="margin-top: 35px; margin-left: 15px"
+              ></i
+            ></label>
+          </div>
+          <div class="win">
+            <label
+              ><input type="checkbox" class="check" /><i
+                class="fa-solid fa-wheelchair fa-flip-horizontal"
+                style="margin-top: 35px; margin-left: 15px"
+              ></i
+            ></label>
+          </div>
+          <div class="win">
+            <label
+              ><input type="checkbox" class="check" /><i
+                class="fa-solid fa-wheelchair fa-flip-horizontal"
+                style="margin-top: 35px; margin-left: 15px"
+              ></i
+            ></label>
+          </div>
+          <div class="win">
+            <label
+              ><input type="checkbox" class="check" /><i
+                class="fa-solid fa-wheelchair fa-flip-horizontal"
+                style="margin-top: 35px; margin-left: 15px"
+              ></i
+            ></label>
+          </div>
+          <div class="win">
+            <label
+              ><input type="checkbox" class="check" /><i
+                class="fa-solid fa-wheelchair fa-flip-horizontal"
+                style="margin-top: 35px; margin-left: 15px"
+              ></i
+            ></label>
+          </div>
+          <div class="win">
+            <label
+              ><input type="checkbox" class="check" /><i
+                class="fa-solid fa-wheelchair fa-flip-horizontal"
+                style="margin-top: 35px; margin-left: 15px"
+              ></i
+            ></label>
+          </div>
+          <div class="win">
+            <label
+              ><input type="checkbox" class="check" /><i
+                class="fa-solid fa-wheelchair fa-flip-horizontal"
+                style="margin-top: 35px; margin-left: 15px"
+              ></i
+            ></label>
+          </div>
+        </div>
+        <div
+          style="
+            position: absolute;
+            margin-top: 150px;
+            margin-left: 700px;
+            color: black;
+          "
+        >
+          <i class="fa-solid fa-gas-pump"></i>
+        </div>
+
+        <div class="left">
+          <i class="fa-solid fa-gear wheels spin" style="font-size: 75px"></i>
+        </div>
+        <div class="right">
+          <i class="fa-solid fa-gear wheels spin" style="font-size: 75px"></i>
+        </div>
+      </div>
+    </center>
+  </body>
+</html>
